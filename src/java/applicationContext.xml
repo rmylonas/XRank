@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-init-method="init"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- spectra reader -->
+	<bean id="jPLRunReaderBasic"
+		class="xrank.ms.spectra.loader.JPLRunReaderBasic" autowire="byName">
+	</bean>
+	
+	<!-- scoring -->	
+	<bean id="rankCorrelationReader"
+		class="xrank.ms.scoring.model.RC.parameters.RankCorrelationReaderImpl" autowire="byName">
+	</bean>
+	
+	<bean id="symetricRankCorrelation"
+		class="xrank.ms.scoring.model.SymetricRC.SymetricRankCorrelation" autowire="byName">
+	</bean>
+	
+	<bean id="searchEngineIterator"
+		class="xrank.ms.scoring.engine.SearchEngineIteratorImpl" autowire="byName">
+	</bean>
+	
+	<bean id="friendlyScoreComputation"
+		class="xrank.ms.scoring.statistics.friendlyScores.FriendlyScoreComputationImpl" autowire="byName">
+	</bean>
+		
+</beans>
